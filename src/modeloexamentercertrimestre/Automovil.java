@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Automovil extends Vehiculo{
-     private String tipo;
+    private String tipo;
 
     //Getter & Setter de automovil
     public String getTipo() {
@@ -33,7 +33,7 @@ public class Automovil extends Vehiculo{
     }
     
     public String writeFileToString(){
-            return  super.writeFileToString() + tipo;
+            return super.writeFileToString() + tipo;
     }
     
     //Aplicamos el metoodo de calcularImporte

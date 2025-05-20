@@ -23,8 +23,6 @@ public class ModeloExamenTercerTrimestre {
         mainMenu();
     }
     
-    
-    
     public static void mainMenu() {
         int opcion = 1;
         Scanner dato = new Scanner(System.in);

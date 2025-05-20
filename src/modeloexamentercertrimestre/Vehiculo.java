@@ -64,9 +64,10 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.matricula);
-        hash = 37 * hash + (this.abono ? 1 : 0);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.matricula);
+        hash = 67 * hash + (this.abono ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.fecha);
         return hash;
     }
 
@@ -85,8 +86,11 @@ public abstract class Vehiculo implements Comparable<Vehiculo> {
         if (this.abono != other.abono) {
             return false;
         }
-        return Objects.equals(this.matricula, other.matricula);
-    }
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
+        return Objects.equals(this.fecha, other.fecha);
+    }   
 
     //compareTo
     @Override

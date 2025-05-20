@@ -12,12 +12,13 @@ import static modeloexamentercertrimestre.ModeloExamenTercerTrimestre.aparcamien
 
 public class Aparcamiento {
 
+    static String fileName = "aparcamiento.txt";
     static Scanner dato = new Scanner(System.in);
     //la lista que va a recoger todos los vehiculos
-    public ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+    public static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
     //Atributos
-    private int capacidad = 10;
+    private int capacidad = 5;
 
     //Getters & Setters
     public int getCapacidad() {
@@ -50,7 +51,7 @@ public class Aparcamiento {
         return "vehiculos: " + vehiculos + "\tcapacidad: "
                 + capacidad;
     }
-
+    
     //metodo para introducir un vehiculo en el parking + escribirFichero
     public void entrarParking() {
         if (capacidad == 0) {
@@ -107,14 +108,14 @@ public class Aparcamiento {
                 Camion newCamion = new Camion(ejes, matr, abono, LocalDateTime.now());
                 vehiculos.add(newCamion);
             }
-            guardarVehiculosFichero("aparcamiento.txt");
+            escribirFichero(fileName);
             capacidad = capacidad - 1;
             System.out.println("Vehiculo añadido correctamente.");
         }
     }
 
     //Guardamos los vehiculos en un fichero
-    public void guardarVehiculosFichero(String fileName) {
+    public void escribirFichero(String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (Vehiculo v : vehiculos) {
                 writer.write(v.writeFileToString());
@@ -134,7 +135,7 @@ public class Aparcamiento {
             Vehiculo v = null;
             while ((linea = br.readLine()) != null) {
                 // Suponiendo que los atributos están separados por coma ","
-                String[] datos = linea.split(","); // Dividimos en 2 partes (nombre y edad, por ejemplo)
+                String[] datos = linea.split(","); // Dividimos en 2 partes
                 String matr = datos[0];
                 boolean abono = Boolean.parseBoolean(datos[1]);
                 LocalDateTime fecha = LocalDateTime.parse(datos[2]);
