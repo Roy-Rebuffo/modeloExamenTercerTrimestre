@@ -18,7 +18,7 @@ public class Aparcamiento {
     public static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
     //Atributos
-    private int capacidad = 5;
+    private int capacidad = 10;
 
     //Getters & Setters
     public int getCapacidad() {

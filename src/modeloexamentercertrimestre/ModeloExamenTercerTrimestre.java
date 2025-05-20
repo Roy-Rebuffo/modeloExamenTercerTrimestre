@@ -20,6 +20,7 @@ public class ModeloExamenTercerTrimestre {
     
     public static void main(String[] args) throws IOException {
         aparcamiento.leerFichero(fileName);
+        limpiarConsola();
         mainMenu();
     }
     
@@ -27,7 +28,7 @@ public class ModeloExamenTercerTrimestre {
         int opcion = 1;
         Scanner dato = new Scanner(System.in);
         while (opcion != 0) {
-            System.out.println("-//-/-/-/-/-//-/-/Bienvenido Al Parking/-/-/-//-/-/-/-//-/-/");
+            System.out.println("Bienvenido Al Parking");
             System.out.println("Que desea hacer?");
             System.out.println("(1) Entrar al Parking");
             System.out.println("(2) Salir del Parking");
@@ -53,6 +54,11 @@ public class ModeloExamenTercerTrimestre {
                 default:
                     System.out.println("Selecciona un Numero valido");
             }
+        }
+    }
+    public static void limpiarConsola() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("\n");
         }
     }
 }
