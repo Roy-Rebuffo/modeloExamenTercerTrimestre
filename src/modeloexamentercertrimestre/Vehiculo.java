@@ -8,6 +8,7 @@ public class Vehiculo implements Comparable<Vehiculo> {
     //Atributos
     protected String matricula;
     protected boolean abono;
+    protected LocalDateTime fecha;
 
     //Getters & Setters
     public String getMatricula() {
@@ -26,24 +27,39 @@ public class Vehiculo implements Comparable<Vehiculo> {
         this.abono = abono;
     }
 
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
     //Constructor
     public Vehiculo() {
     }
 
-    public Vehiculo(String matricula, boolean abono) {
+    public Vehiculo(String matricula, boolean abono, LocalDateTime fecha) {
         this.matricula = matricula;
         this.abono = abono;
+        this.fecha = fecha;
     }
 
+    //toString para leer en consola + toString de la clase hija (lo sobreescribirá) y añadirá el tipo de vehículo
     @Override
-    //toString
     public String toString() {
-        return "matricula: " + matricula + "\nabono: " + abono;
+        return "Matricula: " + matricula
+                + "\nAbono: " + abono
+                + "\nfecha de entrada: " + fecha.getDayOfMonth() + "-"
+                + fecha.getMonthValue() + "-"
+                + fecha.getYear() + " "
+                + fecha.getHour() + ":"
+                + fecha.getMinute();
     }
 
-    //toString para escribir en el archivo
-    public String writeFileToString(LocalDateTime fechaEntrada) {
-        return matricula + "," + abono + "," + fechaEntrada;
+    //writeFileToString para escribir en el archivo + writeFileToString de la clase hija (lo sobreescribirá) y añadirá el tipo de vehículo
+    public String writeFileToString() {
+        return matricula + "," + abono + "," + fecha;
     }
 
     @Override

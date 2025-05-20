@@ -1,7 +1,5 @@
 package modeloexamentercertrimestre;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class Aparcamiento {
@@ -11,7 +9,6 @@ public abstract class Aparcamiento {
 
     //Atributos
     private int capacidad = 10;
-    private LocalDateTime fecha;
 
     //Getters & Setters
     public int getCapacidad() {
@@ -20,14 +17,6 @@ public abstract class Aparcamiento {
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
     }
 
     public ArrayList<Vehiculo> getVehiculos() {
@@ -42,21 +31,16 @@ public abstract class Aparcamiento {
     public Aparcamiento() {
     }
 
-    public Aparcamiento(int capacidad, LocalDateTime fecha) {
+    public Aparcamiento(int capacidad) {
         this.capacidad = capacidad;
-        this.fecha = fecha;
     }
 
     //toString
     @Override
     public String toString() {
-        return "Aparcamiento{" + "vehiculos=" + vehiculos + ", capacidad=" +
-                capacidad + ", fecha=" + fecha.getDayOfMonth()+"-" + 
-                fecha.getMonthValue() + "-"+fecha.getYear() + 
-                "\nHora:"+ fecha.getHour() + ": "+ fecha.getMinute() +
-                ": "+fecha.getSecond();
+        return "vehiculos: " + vehiculos + "\tcapacidad: "
+                + capacidad;
     }
-    
 
     //CalcularImporte
     public abstract double calcularImporte();
