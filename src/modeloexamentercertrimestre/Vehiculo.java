@@ -3,7 +3,7 @@ package modeloexamentercertrimestre;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Vehiculo implements Comparable<Vehiculo> {
+public abstract class Vehiculo implements Comparable<Vehiculo> {
 
     //Atributos
     protected String matricula;
@@ -59,7 +59,7 @@ public class Vehiculo implements Comparable<Vehiculo> {
 
     //writeFileToString para escribir en el archivo + writeFileToString de la clase hija (lo sobreescribirá) y añadirá el tipo de vehículo
     public String writeFileToString() {
-        return matricula + "," + abono + "," + fecha;
+        return matricula + "," + abono + "," + fecha.toString() + ",";
     }
 
     @Override
@@ -94,4 +94,6 @@ public class Vehiculo implements Comparable<Vehiculo> {
         return this.matricula.compareTo(obj.matricula);
     }
 
+    //CalcularImporte
+    public abstract double calcularImporte();
 }
